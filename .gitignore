@@ -71,6 +71,8 @@ web_modules/
 
 # dotenv environment variables file
 .env
+.env.*
+!.env.example
 .env.test
 .env.production
 
@@ -238,6 +240,11 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
+
+# Media downloader temporary output (worker only)
+yt-dlp-temp/
+gallery-dl-temp/
+downloads/
 
 # mkdocs documentation
 /site
