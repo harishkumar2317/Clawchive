@@ -16,16 +16,11 @@ def get_connection(database_url: str) -> Any:
     """Return a PostgreSQL connection using an installed supported driver."""
     try:
         import psycopg
-
         return psycopg.connect(database_url)
-    except ImportError:
-        try:
-            import psycopg2
-        except ImportError as error:
-            raise RuntimeError(
-                "Install a PostgreSQL driver first: pip install 'psycopg[binary]'"
-            ) from error
-        return psycopg2.connect(database_url)
+    except ImportError as error:
+        raise RuntimeError(
+            "Install a PostgreSQL driver first: pip install 'psycopg[binary]'"
+        ) from error
 
 
 def get_migration_files() -> list[Path]:
